@@ -1,0 +1,2 @@
+# hayatta-kalma
+hayata kalma 
