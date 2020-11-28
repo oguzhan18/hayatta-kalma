@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<canvas class='grain'></canvas>
+<div class='game'>
+  <div class='gameOver'>
+    <div class='gameOver_inner'>
+      <img src="skull.png">
+      <h1>Başarısız oldun ve öldün.</h1>
+      <h2>
+        Vardın ama 
+        <span>2</span>
+        kurtarma gelmeden günler önce
+      </h2>
+      <div class='button js-restart'>Yeniden dene</div>
+      <div class='button js-share'>cesaretin varsa paylaş</div>
+    </div>
+  </div>
+  <div class='gameWin'>
+    <div class='gameWin_inner'>
+      <img src="rescued.png">
+      <h1>Kurtarıldın!/h1>
+      <h2>
+        Bir bütün sürdün
+        <span>30</span>
+        days
+      </h2>
+      <div class='button js-restart'>tekrar oyna</div>
+      <div class='button js-shareWin'>cesaretin varsa paylaş</div>
+    </div>
+  </div>
+  <div class='interim'>
+    <h1>Aralık ayında soğuk bir kış gecesinde enfeksiyon geldi. Kurtarma geliyor, 30 gün içinde dediler ki ...</h1>
+  </div>
+  <div class='tooltip'>
+    <p></p>
+  </div>
+  <div class='game_intro'>
+     <img src="cart.png" height="130" width="200">
+    <img src="introClick.png">
+  </div>
+  <div class='game_main'>
+    <div class='game_main__training'>
+      <div class='tHeader'>
+        <div class='close'>
+          <img src="trainingClose.png">
+        </div>
+        <h3 class='pName'>Karakterler</h3>
+        <h4>
+          Mevcut deneyim:
+          <span>1000</span>
+          XP
+        </h4>
+      </div>
+      <div class='skills'></div>
+    </div>
+    <div class='js-day'>
+      <span>30</span>
+      Kurtarmaya kadar günler
+    </div>
+    <div class='game_main__top'>
+      <div class='js-food'>
+        <img src="foodIcon.png">
+        <p>Yemek</p>
+        <span></span>
+      </div>
+      <div class='js-water'>
+        <img src="waterIcon.png">
+        <p>Su</p>
+        <span></span>
+      </div>
+      <div class='js-meds'>
+        <img src="medsIcon.png">
+        <p>Medler</p>
+        <span></span>
+      </div>
+      <div class='js-xp'>
+        <img src="xpIcon.png">
+        <p>XP</p>
+        <span></span>
+      </div>
+    </div>
+    <div class='game_main__left'>
+      <h5>Bugün ne yapmalıyım</h5>
+      <div class='buttonGroup three'>
+        <div class='button js-eat'>
+          Yemek
+          <div class='info'></div>
+        </div>
+        <div class='button js-drink'>
+          İçecek
+          <div class='info'></div>
+        </div>
+        <div class='button js-heal'>
+          İyileşme
+          <div class='info'></div>
+        </div>
+      </div>
+      <div class='buttonGroup'>
+        <div class='button js-scavenge'>
+          Temizlenme
+          <div class='info'></div>
+        </div>
+        <div class='button js-rest'>
+          Ertesi güne kadar dinlen
+          <div class='info'></div>
+        </div>
+        <div class='button js-nextDay'>
+          Ertesi gün
+          <div class='info'></div>
+        </div>
+      </div>
+    </div>
+    <div class='game_main__right'>
+      <p class='playerName'>Jamie Coulter</p>
+      <div class='player'>
+        <div class='c'>
+          <div class='speech'>
+            Bugün iyi hissediyorum
+          </div>
+          <div class='b'>
+            <div class='c_hairMale'></div>
+            <div class='c_hairFemale'></div>
+            <div class='c_skin'></div>
+            <div class='c_shirt'></div>
+          </div>
+          <div class='c_pants'></div>
+        </div>
+      </div>
+      <div class='js-stat stat--health'>
+        <img src="healthIcon.png">
+        <div class='outer'>
+          <span></span>
+        </div>
+      </div>
+      <div class='js-stat stat--hunger'>
+        <img src="hungerIcon.png">
+        <div class='outer'>
+          <span></span>
+        </div>
+      </div>
+      <div class='js-stat stat--thirst'>
+        <img src="thirstIcon.png">
+        <div class='outer'>
+          <span></span>
+        </div>
+      </div>
+      <div class='js-stat stat--fatigue'>
+        <img src="energyIcon.png">
+        <div class='outer'>
+          <span></span>
+        </div>
+      </div>
+      <div class='js-showTraining button'>Eğitim</div>
+    </div>
+    <div class='game_main__bottom'>
+      <div class='js-stat stat--health'>
+        <img src="healthIcon.png">
+        <div class='outer'>
+          <span></span>
+        </div>
+      </div>
+      <div class='scavengeOverlay'>
+        <img src="cogSpinner.gif">
+        <h3>Çöpçü</h3>
+        <h5>Sağlık</h5>
+      </div>
+      <div class='button js-medScavenge'>
+       İyileşmek
+        <div class='info'></div>
+      </div>
+      <div class='scavengePanel'></div>
+    </div>
+  </div>
+  <div class='game_characterCreation'>
+    <div class='game_characterCreation_inner'>
+      <div class='characterForm_title'>
+        <h3>Karakterinizi yaratın</h3>
+      </div>
+      <div class='characterForm'>
+        <div class='characterForm_top'>
+          <div class='rowHeading'>
+            <h4>Karakter Ayrıntıları</h4>
+            <p>Her zaman iki olumlu ve bir olumsuz özelliğiniz olacak.</p>
+            <div class='js-randomize'>
+              <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/dice.svg'>
+              Tümünü rastgele seç
+            </div>
+          </div>
+          <div class='row'>
+            <div class='characterPreview col'>
+              <div class='preview'>
+                <div class='js-reroll'>
+                  <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/dice.svg'>
+                </div>
+                <div class='c'>
+                  <div class='b'>
+                    <div class='c_hairMale'></div>
+                    <div class='c_hairFemale'></div>
+                    <div class='c_skin'></div>
+                    <div class='c_shirt'></div>
+                  </div>
+                  <div class='c_pants'></div>
+                </div>
+              </div>
+            </div>
+            <div class='characterName col'>
+              <h5>Adı</h5>
+              <input class='name' name='name' type='text'>
+              <div class='js-reroll'>
+                <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/dice.svg'>
+              </div>
+            </div>
+            <div class='characterAge col'>
+              <h5>Yaş</h5>
+              <input class='name' name='age' type='text'>
+              <div class='js-reroll'>
+                <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/dice.svg'>
+              </div>
+            </div>
+            <div class='characterGender col'>
+              <h5>Cinsiyet</h5>
+              <input checked='' class='gender' id='male' name='gender' type='radio' value='male'>
+              <label for='male'>Erkek</label>
+              <input checked='checked' class='gender' id='female' name='gender' type='radio' value='female'>
+              <label for='female'>Kadın</label>
+              <input class='gender' id='genderfree' name='gender' type='radio' value='genderfree'>
+              <label for='genderfree'>Cinsiyetsiz</label>
+              <div class='js-reroll'>
+                <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/dice.svg'>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='characterForm_bottom'>
+          <div class='characterForm_bottom__left'>
+            <div class='rowHeading car'>
+              <h4>Kariyer</h4>
+              <p>Geçmiş hayatın önemli</p>
+            </div>
+            <div class='js-career'></div>
+          </div>
+          <div class='characterForm_bottom__right'>
+            <div class='rowHeading'>
+              <h4>Olumlu Özellikler</h4>
+              <p>Her zaman iki pozitif özelliğe sahip olacaksıns</p>
+            </div>
+            <div class='traits pos'>
+              <div class='js-trait trait-one'></div>
+              <div class='js-trait trait-two'></div>
+            </div>
+          </div>
+          <div class='characterForm_bottom__end'>
+            <div class='rowHeading'>
+              <h4>Olumsuz Özellikler</h4>
+              <p>Her zaman bir olumsuz özelliğin olacak</p>
+            </div>
+            <div class='traits neg'>
+              <div class='js-trait trait-one'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='js-createCharacter'>
+       Karakter yarat
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://codepen.io/jcoulterdesign/pen/70702e90c94f884571c637287f5def3e.js'></script><script  src="./script.js"></script><script  src="script1.js"></script>
+
+
+</body>
+</html>

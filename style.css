@@ -1,0 +1,1518 @@
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+.gameOver, .gameWin {
+  box-shadow: 0 0 0 3100px rgba(23, 43, 33, 0.6784313725);
+  display: none;
+  position: fixed;
+  width: 560px;
+  z-index: 2;
+  padding: 40px !important;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+}
+.gameOver:after, .gameOver:before, .gameWin:after, .gameWin:before {
+  display: none !important;
+}
+.gameOver h1, .gameWin h1 {
+  font-size: 50px;
+  color: #d62828;
+  margin-top: 20px;
+}
+.gameOver img, .gameWin img {
+  width: 60px;
+}
+.gameOver .button, .gameWin .button {
+  font-family: "Breamcatcher";
+  font-size: 20px;
+  width: 180px;
+  display: inline-block;
+  padding: 16px 40px;
+  cursor: pointer;
+}
+.gameOver .button:hover, .gameWin .button:hover {
+  background: #05170c;
+  border: 1px solid #045723;
+  box-shadow: 0 0 10px 0px #072512;
+}
+.gameOver .button:hover:before, .gameOver .button:hover:after, .gameWin .button:hover:before, .gameWin .button:hover:after {
+  background: #4adb82;
+}
+.gameOver .button:hover:before, .gameWin .button:hover:before {
+  left: 20px;
+}
+.gameOver .button:hover:after, .gameWin .button:hover:after {
+  right: 20px;
+}
+.gameOver h2, .gameWin h2 {
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+.gameOver h2 span, .gameWin h2 span {
+  color: #4adb82;
+}
+.gameOver .button, .gameWin .button {
+  margin-right: 10px;
+}
+
+.gameWin h1 {
+  color: #4adb82;
+}
+
+.popupCount {
+  -webkit-animation: popupCount .8s forwards;
+          animation: popupCount .8s forwards;
+}
+
+@-webkit-keyframes popupCount {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes popupCount {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  padding: 2px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4adb82;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4adb82;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Breamcatcher";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/Breamcatcher-Regular.woff2") format("woff2"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/Breamcatcher-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gotham Rounded";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/GothamRounded-Light.woff2") format("woff2"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/GothamRounded-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+.interim {
+  display: none;
+}
+.interim h1 {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 660px;
+  text-align: center;
+  font-size: 40px;
+  margin: auto;
+}
+
+@font-face {
+  font-family: "Gotham Rounded";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/GothamRounded-Bold.woff2") format("woff2"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/GothamRounded-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+body .game_main, body .game_main .player img, body .game_characterCreation, body .game_characterCreation_inner .characterForm_title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.gameOver:after, .gameWin:after, .gameOver .button:after, .gameWin .button:after, body .game_main__training .row .button:after, body .game_main__training:after, body .game_main__bottom .js-medScavenge:after, body .game_main__right .button:after, body .game_main__left .button:after, body .game_characterCreation_inner .characterForm_title:after, body .game_characterCreation_inner .characterForm_bottom__right .traits .trait:after, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait:after, body .game_characterCreation_inner .characterForm_bottom .career:after, body .game_characterCreation_inner .characterForm_top .js-randomize:after, body .game_characterCreation_inner .js-createCharacter:after, .gameOver:before, .gameWin:before, .gameOver .button:before, .gameWin .button:before, body .game_main__training .row .button:before, body .game_main__training:before, body .game_main__bottom .js-medScavenge:before, body .game_main__right .button:before, body .game_main__left .button:before, body .game_characterCreation_inner .characterForm_title:before, body .game_characterCreation_inner .characterForm_bottom__right .traits .trait:before, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait:before, body .game_characterCreation_inner .characterForm_bottom .career:before, body .game_characterCreation_inner .characterForm_top .js-randomize:before, body .game_characterCreation_inner .js-createCharacter:before {
+  content: " ";
+  display: block;
+  background: #052511;
+  width: 80px;
+  height: 8px;
+  position: absolute;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.gameOver, .gameWin, .gameOver .button, .gameWin .button, body .game_main__training .row .button, body .game_main__training, body .game_main__bottom .js-medScavenge, body .game_main__right .button, body .game_main__left .button, body .game_characterCreation_inner .characterForm_title, body .game_characterCreation_inner .characterForm_bottom__right .traits .trait, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait, body .game_characterCreation_inner .characterForm_bottom .career, body .game_characterCreation_inner .characterForm_top .js-randomize, body .game_characterCreation_inner .js-createCharacter {
+  border: 1px solid #052511;
+  background: #05170c;
+  padding: 20px;
+  position: relative;
+}
+.gameOver:before, .gameWin:before, .gameOver .button:before, .gameWin .button:before, body .game_main__training .row .button:before, body .game_main__training:before, body .game_main__bottom .js-medScavenge:before, body .game_main__right .button:before, body .game_main__left .button:before, body .game_characterCreation_inner .characterForm_title:before, body .game_characterCreation_inner .characterForm_bottom__right .traits .trait:before, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait:before, body .game_characterCreation_inner .characterForm_bottom .career:before, body .game_characterCreation_inner .characterForm_top .js-randomize:before, body .game_characterCreation_inner .js-createCharacter:before {
+  top: 0px;
+  left: 4px;
+  -webkit-transform: translateY(-48%) skewX(45deg) rotate(-4deg);
+          transform: translateY(-48%) skewX(45deg) rotate(-4deg);
+  z-index: -1;
+}
+.gameOver:after, .gameWin:after, .gameOver .button:after, .gameWin .button:after, body .game_main__training .row .button:after, body .game_main__training:after, body .game_main__bottom .js-medScavenge:after, body .game_main__right .button:after, body .game_main__left .button:after, body .game_characterCreation_inner .characterForm_title:after, body .game_characterCreation_inner .characterForm_bottom__right .traits .trait:after, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait:after, body .game_characterCreation_inner .characterForm_bottom .career:after, body .game_characterCreation_inner .characterForm_top .js-randomize:after, body .game_characterCreation_inner .js-createCharacter:after {
+  bottom: 0;
+  right: 4px;
+  -webkit-transform: translateY(48%) skewX(45deg) rotate(-4deg);
+          transform: translateY(48%) skewX(45deg) rotate(-4deg);
+  z-index: -1;
+}
+
+body {
+  background: #06180d;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/gameBgasdsd.jpg");
+  background-size: cover !important;
+  color: white;
+  font-size: 12px;
+  -ms-user-select: none;
+      user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  overflow-x: hidden;
+}
+body .tooltip {
+  width: 240px;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 1;
+  padding: 21px;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s 0.5s;
+  transition: opacity 0.2s 0.5s;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translate(0%, -111%);
+          transform: translate(0%, -111%);
+}
+body .tooltip span {
+  color: #e64248;
+}
+body .tooltip p {
+  margin: 0;
+  line-height: 20px;
+}
+body .grain {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.55;
+  width: 100%;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  margin: 0;
+  font-weight: normal;
+  font-family: "Breamcatcher";
+}
+body p,
+body input,
+body label {
+  font-family: "Gotham Rounded";
+}
+body .trait h5,
+body h6,
+body .career h5 {
+  text-shadow: 0 0 7px;
+}
+body h3 {
+  font-size: 30px;
+}
+body h4 {
+  font-size: 23px;
+}
+body h5 {
+  font-size: 18px;
+}
+body .game {
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  height: 100vh;
+}
+body .game .c {
+  position: absolute;
+  left: 67px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  top: -8px;
+  -webkit-transform: scale(1.72);
+          transform: scale(1.72);
+}
+body .game .c:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 47px;
+  height: 14px;
+  background: rgba(0, 0, 0, 0.1294117647);
+  border-radius: 100%;
+  left: -16px;
+  top: 80px;
+  z-index: -1;
+}
+body .game .c div {
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: pixelated;
+}
+body .game .b {
+  -webkit-animation: breathing 1.6s infinite;
+          animation: breathing 1.6s infinite;
+  position: relative;
+  z-index: 1;
+}
+body .game .c_pants {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/char_legs.png");
+  height: 25px;
+  width: 14px;
+  background-size: auto 100%;
+  background-position: 0 0;
+  position: relative;
+  left: 1px;
+}
+body .game .c_shirt {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/c_shirts.png");
+  height: 19px;
+  width: 19px;
+  background-size: auto 100%;
+  background-position: 0 0;
+  top: 3px;
+  position: relative;
+  left: -2px;
+}
+body .game .c_skin {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/c_skin.png");
+  height: 29px;
+  width: 17px;
+  background-size: auto 100%;
+  background-position: 0 0;
+  position: relative;
+  top: 25px;
+  left: -1px;
+}
+body .game .c_hairMale {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/c_hairMale.png");
+  height: 10px;
+  width: 9px;
+  background-size: auto 100%;
+  background-position: 0 0;
+  position: relative;
+  top: 31px;
+  left: 4px;
+  margin-top: 3px;
+}
+body .game .c_hairFemale {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/c_hairFemale.png");
+  height: 13px;
+  width: 14px;
+  background-size: auto 100%;
+  background-position: 0 0;
+  position: relative;
+  top: 35px;
+  left: 1px;
+}
+body .game_intro {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 50%;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 194px;
+  -webkit-animation: fadeIn 2s 1s forwards;
+          animation: fadeIn 2s 1s forwards;
+}
+body .game_intro.out {
+  -webkit-animation: fadeOut 1s 0s forwards;
+          animation: fadeOut 1s 0s forwards;
+  opacity: 1;
+}
+body .game_intro img:nth-of-type(2) {
+  margin: 50px auto 0 auto;
+  display: block;
+  clear: both;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes breathing {
+  0% {
+    top: 1px;
+  }
+  50% {
+    top: 3px;
+  }
+  100% {
+    top: 1px;
+  }
+}
+@keyframes breathing {
+  0% {
+    top: 1px;
+  }
+  50% {
+    top: 3px;
+  }
+  100% {
+    top: 1px;
+  }
+}
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+body .game_main {
+  width: 1100px;
+  display: none;
+}
+body .game_main .js-showTraining {
+  width: 140px;
+  margin: 0 auto;
+  position: relative;
+  top: -10px;
+  background: #1e3c23;
+  border-color: #2b7936;
+  cursor: pointer;
+}
+body .game_main .js-showTraining:after, body .game_main .js-showTraining:before {
+  background: #2b7936;
+}
+body .game_main__training {
+  display: none;
+  box-shadow: 0 0 0 3100px rgba(23, 43, 33, 0.6784313725);
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 20px 20px 0px 20px !important;
+  width: 520px;
+  height: 500px;
+  overflow-y: scroll;
+  z-index: 2;
+  margin: auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+body .game_main__training .close {
+  position: absolute;
+  right: 24px;
+  border: 1px solid #052511;
+  padding: 8px 8px 4px 8px;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+body .game_main__training .close:hover {
+  background: #05170c;
+  border: 1px solid #045723;
+}
+body .game_main__training .close:hover img {
+  opacity: 1;
+}
+body .game_main__training .close img {
+  width: 14px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  opacity: 0.3;
+}
+body .game_main__training:after, body .game_main__training:before {
+  display: none;
+}
+body .game_main__training .button {
+  font-family: "Breamcatcher";
+  font-size: 20px;
+  width: 140px;
+  display: inline-block;
+  cursor: pointer;
+  padding: 7px 12px 8px 12px !important;
+  font-size: 18px !important;
+  text-align: center;
+}
+body .game_main__training .button span {
+  display: block;
+  font-size: 16px;
+  color: #4adb82;
+}
+body .game_main__training .button:hover {
+  background: #05170c;
+  border: 1px solid #045723;
+  box-shadow: 0 0 10px 0px #072512;
+}
+body .game_main__training .button:hover:before, body .game_main__training .button:hover:after {
+  background: #4adb82;
+}
+body .game_main__training .button:hover:before {
+  left: 20px;
+}
+body .game_main__training .button:hover:after {
+  right: 20px;
+}
+body .game_main__training .tHeader {
+  position: -webkit-sticky;
+  position: sticky;
+  width: calc(100% + 40px);
+  background: rgba(9, 19, 11, 0.88);
+  left: -40px;
+  top: 0;
+  padding: 30px;
+  -webkit-transform: translate(-20px, -20px);
+          transform: translate(-20px, -20px);
+  z-index: 1;
+}
+body .game_main__training .tHeader span {
+  color: #4adb82;
+}
+body .game_main__training .row {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 0 16px 0;
+  padding: 8px 12px 0px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+body .game_main__training .row:last-child {
+  border: none;
+}
+body .game_main__training .row.maxed:after, body .game_main__training .row.cantLevel:after {
+  content: 'maxed';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(36, 70, 36, 0.86);
+  text-align: center;
+  font-family: breamcatcher;
+  font-size: 22px;
+  top: 0;
+  line-height: 82px;
+  left: 0;
+}
+body .game_main__training .row.cantLevel:after {
+  content: 'Cant level';
+  background: rgba(70, 27, 27, 0.86);
+}
+body .game_main__training .row_left {
+  float: left;
+  width: 100px;
+  margin-right: 30px;
+  position: relative;
+  top: -5px;
+}
+body .game_main__training .row_left .name {
+  font-family: 'breamcatcher';
+  font-size: 19px;
+  margin-bottom: -8px;
+  margin-top: 9px;
+}
+body .game_main__training .row_left .level span {
+  color: #4adb82;
+  font-weight: bold;
+}
+body .game_main__training .row_center {
+  float: left;
+  width: 170px;
+  font-size: 11px;
+  line-height: 17px;
+  position: relative;
+  top: -5px;
+  color: #b7cebc;
+}
+body .game_main__training .row_center p {
+  position: relative;
+  top: -9px;
+}
+body .game_main__training .row .button {
+  position: relative;
+  top: -2px;
+  float: right;
+}
+body .game_main p.playerName {
+  font-family: "Breamcatcher";
+  font-size: 18px;
+  color: #4adb82;
+  margin-top: 30px;
+  margin-bottom: -6px;
+  background: #0b190b;
+  border: 1px solid #122117;
+  top: -23px;
+  position: absolute;
+  padding: 11px 20px;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  width: 180px;
+  margin: 0 auto;
+}
+body .game_main p.playerCareer {
+  font-size: 11px;
+}
+body .game_main .player {
+  width: 120px;
+  height: 100%;
+  position: relative;
+  margin: 0px auto;
+  text-align: center;
+}
+body .game_main .player .c {
+  left: 51px;
+  top: 92px;
+}
+body .game_main .player .speech {
+  width: 111px;
+  font-family: "Breamcatcher";
+  background: white;
+  border-radius: 4px;
+  color: #2b2828;
+  position: absolute;
+  padding: 8px 15px;
+  font-size: 11px;
+  left: -46px;
+  top: -5px;
+  -webkit-animation: breathing 1.6s infinite;
+          animation: breathing 1.6s infinite;
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+}
+body .game_main .player .shadow {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.19);
+  width: 130px;
+  height: 44px;
+  border-radius: 100%;
+  top: 55%;
+  left: -3px;
+  right: 0;
+  margin: auto;
+}
+body .game_main .js-stat {
+  position: absolute;
+}
+body .game_main .js-stat.danger .outer {
+  border-color: #ec2a43;
+  -webkit-animation: danger 1s infinite;
+          animation: danger 1s infinite;
+}
+@-webkit-keyframes danger {
+  0% {
+    box-shadow: 0 0 0px 0px #ec2a43;
+  }
+  50% {
+    box-shadow: 0 0 12px 0px #ec2a43;
+  }
+}
+@keyframes danger {
+  0% {
+    box-shadow: 0 0 0px 0px #ec2a43;
+  }
+  50% {
+    box-shadow: 0 0 12px 0px #ec2a43;
+  }
+}
+body .game_main .js-stat.stat--fatigue {
+  top: 112px;
+  left: 328px;
+}
+body .game_main .js-stat.stat--hunger {
+  top: 150px;
+  left: 314px;
+}
+body .game_main .js-stat.stat--thirst {
+  top: 88px;
+  left: 44px;
+}
+body .game_main .js-stat.stat--thirst span {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transform-origin: 60px 3px;
+          transform-origin: 60px 3px;
+  top: -2px;
+  position: relative;
+}
+body .game_main .js-stat.stat--health {
+  top: 171px;
+  left: 62px;
+}
+body .game_main .js-stat.stat--health span {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transform-origin: 60px 3px;
+          transform-origin: 60px 3px;
+  top: -2px;
+  position: relative;
+}
+body .game_main .js-stat .outer {
+  width: 120px;
+  border: 1px solid #052511;
+  font-size: 0;
+  height: 6px;
+  display: block;
+  clear: both;
+  overflow: hidden;
+}
+body .game_main .js-stat.stat--thirst span {
+  background: #34ccd4;
+}
+body .game_main .js-stat.stat--thirst img {
+  position: relative;
+  left: 120px;
+  top: 29px;
+}
+body .game_main .js-stat.stat--thirst .outer {
+  border-right: 0;
+}
+body .game_main .js-stat.stat--hunger span {
+  background: #34af17;
+}
+body .game_main .js-stat.stat--hunger img {
+  position: relative;
+  left: -54px;
+  top: 20px;
+}
+body .game_main .js-stat.stat--hunger .outer {
+  border-left: 0;
+}
+body .game_main .js-stat.stat--health span {
+  background: #e32c2c;
+}
+body .game_main .js-stat.stat--health img {
+  position: relative;
+  left: 120px;
+  top: 19px;
+}
+body .game_main .js-stat.stat--health .outer {
+  border-right: 0;
+}
+body .game_main .js-stat.stat--fatigue img {
+  position: relative;
+  left: -73px;
+  top: 20px;
+}
+body .game_main .js-stat.stat--fatigue span {
+  background: #f8d515;
+}
+body .game_main .js-stat.stat--fatigue .outer {
+  border-left: 0;
+}
+body .game_main .js-stat span {
+  display: block;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 100%;
+  height: 100%;
+}
+body .game_main .js-day {
+  position: absolute;
+  left: 0;
+  text-align: center;
+  top: 0;
+  font-size: 30px;
+  width: 100%;
+  font-family: "Breamcatcher";
+  top: 0px;
+}
+body .game_main .js-day span {
+  color: #4adb82;
+}
+body .game_main h5 {
+  font-size: 22px;
+  margin-bottom: 13px;
+}
+body .game_main__top {
+  text-align: center;
+  -webkit-transform: translateX(14px);
+          transform: translateX(14px);
+  margin: 80px 0 80px 0;
+}
+body .game_main__top p {
+  display: inline-block;
+  font-size: 10px;
+  position: relative;
+  top: -11px;
+  text-align: left;
+  opacity: 0.5;
+  float: left;
+}
+body .game_main__top .popupCount {
+  position: absolute;
+  left: -44px;
+  top: 24px;
+  width: 20px;
+  font-size: 11px;
+  font-family: 'gotham rounded';
+  font-weight: bold;
+}
+body .game_main__top .popupCount.neg {
+  color: #e32c2c;
+}
+body .game_main__top div {
+  display: inline-block;
+  margin-right: 30px;
+}
+body .game_main__top img {
+  float: left;
+  margin-right: 10px;
+}
+body .game_main__top span {
+  font-family: "Breamcatcher";
+  font-size: 17px;
+  position: relative;
+  display: block;
+  left: 40px;
+  float: left;
+  top: -21px;
+  clear: left;
+  color: #4adb82;
+}
+body .game_main__bottom {
+  clear: both;
+  padding-top: 60px;
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+body .game_main__bottom h5 {
+  margin-top: 17px !important;
+}
+body .game_main__bottom .js-stat.stat--health {
+  top: 205px;
+  left: 52px;
+}
+body .game_main__bottom .js-stat.stat--health img {
+  display: none;
+}
+body .game_main__bottom .js-stat.stat--health .outer {
+  width: 216px;
+  border: 1px solid #052511;
+  font-size: 0;
+  height: 10px;
+  display: block;
+  clear: both;
+  top: 0;
+  overflow: hidden;
+}
+body .game_main__bottom .js-stat.stat--health span {
+  -webkit-transform: none;
+          transform: none;
+  -webkit-transform-origin: 0;
+          transform-origin: 0;
+  top: 0px;
+  position: relative;
+}
+body .game_main__bottom .js-medScavenge {
+  position: absolute;
+  z-index: 1;
+  width: 190px;
+  left: 67px;
+  display: none;
+  top: 232px;
+  background: #2d1515;
+  border-color: #541a1a;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'breamcatcher';
+  font-size: 22px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+body .game_main__bottom .js-medScavenge.inactive {
+  border: 1px solid #052511 !important;
+  background: #05170c !important;
+  pointer-events: none;
+}
+body .game_main__bottom .js-medScavenge .info {
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  top: 10px;
+}
+body .game_main__bottom .js-medScavenge:hover {
+  padding: 10px 20px 30px 20px;
+  background: #461717 !important;
+  border: 1px solid #bf1616 !important;
+}
+body .game_main__bottom .js-medScavenge:hover .info {
+  opacity: 1;
+  top: 30px;
+  pointer-events: none;
+}
+body .game_main__bottom .js-medScavenge:hover span {
+  opacity: 1;
+}
+body .game_main__bottom .js-medScavenge:hover span span {
+  opacity: 1;
+}
+body .game_main__bottom .js-medScavenge .info {
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  top: 10px;
+}
+body .game_main__bottom .js-medScavenge span {
+  display: block;
+  margin-top: 8px;
+  font-family: "gotham rounded";
+  font-size: 11px;
+  clear: both;
+  text-transform: capitalize;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 10px;
+}
+body .game_main__bottom .js-medScavenge span span {
+  display: inline-block;
+  margin-left: 10px;
+  position: static;
+  font-weight: bold;
+}
+body .game_main__bottom .js-medScavenge span span.pos {
+  color: #78ff00;
+}
+body .game_main__bottom .js-medScavenge span span.neg {
+  color: #ff3c3c;
+}
+body .game_main__bottom .js-medScavenge:after, body .game_main__bottom .js-medScavenge:before {
+  display: none;
+}
+body .game_main__bottom .scavengeOverlay {
+  pointer-events: none;
+  opacity: 1;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 30%;
+  float: left;
+  height: 198px;
+  left: 0;
+  background: rgba(11, 19, 8, 0.95);
+  z-index: 1;
+  border: 1px solid #152910;
+  text-align: center;
+  right: 0;
+  margin: auto;
+  top: 169px;
+  line-height: 30px;
+}
+body .game_main__bottom .scavengeOverlay img {
+  width: 36px;
+  margin-top: 20px;
+}
+body .game_main__bottom h5 {
+  font-size: 18px;
+  margin-top: -30px;
+}
+body .game_main__bottom .scavengePanel {
+  padding: 20px;
+  height: 200px;
+  overflow-y: scroll;
+  border: 1px solid #052511;
+  width: calc(70% - 20px);
+  float: left;
+  margin-left: 20px;
+}
+body .game_main__bottom .scavengePanel p {
+  margin: 8px 0px;
+  font-size: 11px;
+  color: #b5e2cb;
+}
+body .game_main__bottom .scavengePanel span {
+  display: inline-block;
+  width: 39px;
+  margin-right: 6px;
+  font-weight: bold;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+body .game_main__right {
+  background: rgba(31, 49, 25, 0.11);
+  border: 1px solid #142312;
+  width: calc(50% - 50px) !important;
+  margin-left: 50px;
+  margin-top: 9px;
+  height: 284px;
+  position: relative;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+body .game_main__left {
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  position: relative;
+}
+body .game_main__right, body .game_main__left {
+  width: 50%;
+  float: left;
+}
+body .game_main__right .js-nextDay, body .game_main__left .js-nextDay {
+  display: none;
+}
+body .game_main__right .buttonGroup, body .game_main__left .buttonGroup {
+  overflow: hidden;
+  padding-top: 10px;
+}
+body .game_main__right .buttonGroup .button, body .game_main__left .buttonGroup .button {
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+body .game_main__right .buttonGroup .button:hover, body .game_main__left .buttonGroup .button:hover {
+  padding: 10px 20px 30px 20px;
+}
+body .game_main__right .buttonGroup .button:hover .info, body .game_main__left .buttonGroup .button:hover .info {
+  opacity: 1;
+  top: 30px;
+  pointer-events: none;
+}
+body .game_main__right .buttonGroup .button:hover span, body .game_main__left .buttonGroup .button:hover span {
+  opacity: 1;
+}
+body .game_main__right .buttonGroup .button:hover span span, body .game_main__left .buttonGroup .button:hover span span {
+  opacity: 1;
+}
+body .game_main__right .buttonGroup .button .info, body .game_main__left .buttonGroup .button .info {
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  top: 10px;
+}
+body .game_main__right .buttonGroup .button span, body .game_main__left .buttonGroup .button span {
+  display: block;
+  margin-top: 8px;
+  font-family: "gotham rounded";
+  font-size: 11px;
+  clear: both;
+  text-transform: capitalize;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 10px;
+}
+body .game_main__right .buttonGroup .button span span, body .game_main__left .buttonGroup .button span span {
+  display: inline-block;
+  margin-left: 10px;
+  position: static;
+  font-weight: bold;
+}
+body .game_main__right .buttonGroup .button span span.pos, body .game_main__left .buttonGroup .button span span.pos {
+  color: #78ff00;
+}
+body .game_main__right .buttonGroup .button span span.neg, body .game_main__left .buttonGroup .button span span.neg {
+  color: #ff3c3c;
+}
+body .game_main__right .buttonGroup.three, body .game_main__left .buttonGroup.three {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #052511;
+  padding-bottom: 6px;
+}
+body .game_main__right .buttonGroup.three .button, body .game_main__left .buttonGroup.three .button {
+  width: calc(33.33% - 12px);
+  float: left;
+  margin-right: 18px;
+}
+body .game_main__right .buttonGroup.three .button:nth-of-type(3), body .game_main__left .buttonGroup.three .button:nth-of-type(3) {
+  margin-right: 0;
+}
+body .game_main__right .button, body .game_main__left .button {
+  font-family: "Breamcatcher";
+  text-align: center;
+  font-size: 18px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+body .game_main__right .button ::-webkit-scrollbar, body .game_main__left .button ::-webkit-scrollbar {
+  width: 20px;
+}
+body .game_main__right .button ::-webkit-scrollbar-track, body .game_main__left .button ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+body .game_main__right .button ::-webkit-scrollbar-thumb, body .game_main__left .button ::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+body .game_main__right .button ::-webkit-scrollbar-thumb:hover, body .game_main__left .button ::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+body .game_main__right .button:hover, body .game_main__left .button:hover {
+  background: #05170c;
+  border: 1px solid #045723;
+  box-shadow: 0 0 10px 0px #072512;
+}
+body .game_main__right .button:hover:before, body .game_main__right .button:hover:after, body .game_main__left .button:hover:before, body .game_main__left .button:hover:after {
+  background: #4adb82;
+}
+body .game_main__right .button:hover:before, body .game_main__left .button:hover:before {
+  left: 20px;
+}
+body .game_main__right .button:hover:after, body .game_main__left .button:hover:after {
+  right: 20px;
+}
+body .game_main__right .button.inactive, body .game_main__left .button.inactive {
+  background: #05180d;
+  border: 1px solid #062110;
+  pointer-events: none;
+  color: #757f79;
+}
+body .game_main__right .button.inactive:after, body .game_main__right .button.inactive:before, body .game_main__left .button.inactive:after, body .game_main__left .button.inactive:before {
+  background: #062110;
+}
+body .game_characterCreation {
+  display: block;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.09);
+  border: 1px solid #052511;
+  width: 1085px;
+  padding: 40px 40px 80px 40px;
+}
+body .game_characterCreation_inner .characterForm_title {
+  position: absolute;
+  -webkit-transform: translateY(-65%);
+          transform: translateY(-65%);
+  text-align: center;
+  width: 250px;
+  -webkit-transform: 0;
+          transform: 0;
+  top: 0;
+  padding: 10px;
+}
+body .game_characterCreation_inner .characterForm_title:after, body .game_characterCreation_inner .characterForm_title:before {
+  display: none;
+}
+body .game_characterCreation_inner .characterForm_bottom {
+  position: relative;
+}
+body .game_characterCreation_inner .characterForm_bottom .rowHeading {
+  position: relative;
+}
+body .game_characterCreation_inner .characterForm_bottom .js-reroll {
+  width: 18px;
+  position: absolute;
+  right: 0;
+  top: 13px;
+  height: 44px;
+}
+body .game_characterCreation_inner .characterForm_bottom .js-reroll img {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  top: 13px;
+}
+body .game_characterCreation_inner .characterForm_bottom__right {
+  padding-right: 10px !important;
+}
+body .game_characterCreation_inner .characterForm_bottom__right, body .game_characterCreation_inner .characterForm_bottom__end {
+  padding-right: 0;
+  padding-left: 20px;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait {
+  margin-bottom: 12px;
+  padding: 16px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait .tIcon, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait .tIcon {
+  background-position: -380% center;
+  width: 26px;
+  float: left;
+  position: relative;
+  top: -2px;
+  margin-right: 6px;
+  height: 24px;
+  -webkit-filter: drop-shadow(0px 0px 6px green);
+          filter: drop-shadow(0px 0px 6px green);
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/positiveTraits.png);
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait .tIcon.neg, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait .tIcon.neg {
+  -webkit-filter: drop-shadow(0px 0px 6px red);
+          filter: drop-shadow(0px 0px 6px red);
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/negativeTraits.png);
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait:hover, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait:hover {
+  border-color: #4adb82;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait:hover:before, body .game_characterCreation_inner .characterForm_bottom__right .traits .trait:hover:after, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait:hover:before, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait:hover:after {
+  background: #4adb82;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait.negative, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait.negative {
+  background: #290909;
+  border: 1px solid #37231d;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait.negative:after, body .game_characterCreation_inner .characterForm_bottom__right .traits .trait.negative:before, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait.negative:after, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait.negative:before {
+  background: #37231d;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait.negative:hover, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait.negative:hover {
+  border-color: #e64248;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait.negative:hover:before, body .game_characterCreation_inner .characterForm_bottom__right .traits .trait.negative:hover:after, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait.negative:hover:before, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait.negative:hover:after {
+  background: #e64248;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait.negative h5, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait.negative h5 {
+  color: #e64248;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait.negative .value, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait.negative .value {
+  color: #ff3c3c;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait.negative .trait_attributes, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait.negative .trait_attributes {
+  color: #c39898;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait_header, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait_header {
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait_header img, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait_header img {
+  height: 20px;
+  margin-right: 11px;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait img, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait img {
+  float: left;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait h5, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait h5 {
+  color: #4adb82;
+  font-size: 18px;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait p, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait p {
+  line-height: 22px;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait_attributes, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait_attributes {
+  font-family: "Gotham Rounded";
+  color: #90b7a4;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait_attributes span, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait_attributes span {
+  text-transform: capitalize;
+}
+body .game_characterCreation_inner .characterForm_bottom__right .traits .trait_attributes span.value, body .game_characterCreation_inner .characterForm_bottom__end .traits .trait_attributes span.value {
+  font-weight: bold;
+  color: #78ff00;
+}
+body .game_characterCreation_inner .characterForm_bottom__end {
+  padding-right: 0;
+}
+body .game_characterCreation_inner .characterForm_bottom__left, body .game_characterCreation_inner .characterForm_bottom__right, body .game_characterCreation_inner .characterForm_bottom__end {
+  width: 33.33%;
+  float: left;
+  padding-right: 10px;
+}
+body .game_characterCreation_inner .characterForm_bottom__left .rowHeading p, body .game_characterCreation_inner .characterForm_bottom__right .rowHeading p, body .game_characterCreation_inner .characterForm_bottom__end .rowHeading p {
+  margin: 6px 0 30px 0;
+  color: #90b7a4;
+}
+body .game_characterCreation_inner .characterForm_bottom__right {
+  padding-right: 0;
+}
+body .game_characterCreation_inner .characterForm_bottom .career {
+  height: 177px;
+  padding-bottom: 70px;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+body .game_characterCreation_inner .characterForm_bottom .career:hover {
+  border-color: #4adb82;
+}
+body .game_characterCreation_inner .characterForm_bottom .career:hover:before, body .game_characterCreation_inner .characterForm_bottom .career:hover:after {
+  background: #4adb82;
+}
+body .game_characterCreation_inner .characterForm_bottom .career .cIcon {
+  -webkit-filter: drop-shadow(0px 0px 6px green);
+          filter: drop-shadow(0px 0px 6px green);
+  width: 30px;
+  height: 35px;
+  margin-right: 10px;
+  position: relative;
+  top: -7px;
+  float: left;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/careerIcons.png);
+}
+body .game_characterCreation_inner .characterForm_bottom .career_header {
+  border-bottom: 1px solid #052511;
+  padding-bottom: 20px;
+  margin-bottom: 14px;
+}
+body .game_characterCreation_inner .characterForm_bottom .career_header img {
+  height: 27px;
+  margin-right: 11px;
+}
+body .game_characterCreation_inner .characterForm_bottom .career img {
+  float: left;
+}
+body .game_characterCreation_inner .characterForm_bottom .career h5 {
+  color: #4adb82;
+  position: relative;
+  top: 2px;
+  font-size: 19px;
+}
+body .game_characterCreation_inner .characterForm_bottom .career p {
+  line-height: 18px;
+}
+body .game_characterCreation_inner .characterForm_bottom .career_attributes {
+  font-family: "Gotham Rounded";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 17px 20px;
+  color: #90b7a4;
+}
+body .game_characterCreation_inner .characterForm_bottom .career_attributes span {
+  text-transform: capitalize;
+}
+body .game_characterCreation_inner .characterForm_bottom .career_attributes span.value {
+  color: #78ff00;
+  font-weight: bold;
+}
+body .game_characterCreation_inner .characterForm_top {
+  position: relative;
+  height: 240px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #052511;
+  padding-bottom: 32px;
+}
+body .game_characterCreation_inner .characterForm_top h5 {
+  margin-top: 22px;
+}
+body .game_characterCreation_inner .characterForm_top .js-randomize {
+  font-family: "Breamcatcher";
+  font-size: 18px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+body .game_characterCreation_inner .characterForm_top .js-randomize:hover {
+  background: #05170c;
+  border: 1px solid #045723;
+  box-shadow: 0 0 10px 0px #072512;
+}
+body .game_characterCreation_inner .characterForm_top .js-randomize img {
+  width: 16px;
+  margin-right: 12px;
+  float: left;
+  position: relative;
+  top: 3px;
+}
+body .game_characterCreation_inner .characterForm_top .js-randomize:after, body .game_characterCreation_inner .characterForm_top .js-randomize:before {
+  display: none;
+}
+body .game_characterCreation_inner .characterForm_top .rowHeading p {
+  color: #90b7a4;
+  margin: 6px 0 30px 0;
+}
+body .game_characterCreation_inner .characterForm_top .col {
+  float: left;
+  padding-right: 36px;
+  position: relative;
+}
+body .game_characterCreation_inner .characterForm_top .col .js-reroll {
+  width: 36px;
+  position: absolute;
+  right: 21px;
+  bottom: 0px;
+  height: 44px;
+  padding-right: 19px;
+  border-right: 1px solid #0c1b12;
+}
+body .game_characterCreation_inner .characterForm_top .col .js-reroll img {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  top: 13px;
+}
+body .game_characterCreation_inner .characterForm_top .col input[type="text"],
+body .game_characterCreation_inner .characterForm_top .col input[type="number"] {
+  width: calc(100% - 40px);
+  color: #90b7a4;
+  background: #021008;
+  border: 1px solid #0c1b12;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  padding: 14px 17px;
+  margin-top: 18px;
+}
+body .game_characterCreation_inner .characterForm_top .col input[type="text"]:focus,
+body .game_characterCreation_inner .characterForm_top .col input[type="number"]:focus {
+  background: #05170c;
+  border: 1px solid #045723;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterPreview {
+  width: 18%;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterPreview img {
+  image-rendering: pixelate;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterPreview .preview {
+  width: 100%;
+  height: 134px;
+  background: #223329;
+  border: 1px solid #386148;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterPreview .preview .js-reroll {
+  width: 18px;
+  position: absolute;
+  right: 51px;
+  bottom: 2px;
+  height: 44px;
+  padding-right: 0;
+  border: 0;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterPreview .preview .js-reroll img {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  top: -72px;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterName {
+  width: 28%;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterAge {
+  width: 15%;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterGender {
+  width: 39%;
+  padding-right: 0;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterGender .js-reroll {
+  border: none;
+  right: -19px;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterGender input {
+  display: none;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterGender input:checked + label {
+  background: #05170c;
+  border: 1px solid #045723;
+  color: #4adb82;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterGender label {
+  background: #021008;
+  border: 1px solid #0c1b12;
+  display: inline-block;
+  color: #90b7a4;
+  padding: 14px 30px;
+  margin-top: 18px;
+  margin-right: 10px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+body .game_characterCreation_inner .characterForm_top .col.characterGender label:hover {
+  background: #05170c;
+  border: 1px solid #045723;
+  color: #4adb82;
+}
+body .game_characterCreation_inner .js-createCharacter {
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: -35px;
+  font-family: "Breamcatcher";
+  font-size: 22px;
+  text-align: center;
+  width: 200px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+body .game_characterCreation_inner .js-createCharacter:hover {
+  background: #05170c;
+  border: 1px solid #045723;
+  box-shadow: 0 0 10px 0px #072512;
+}
+body .game_characterCreation_inner .js-createCharacter:hover:before, body .game_characterCreation_inner .js-createCharacter:hover:after {
+  background: #4adb82;
+}
+body .game_characterCreation_inner .js-createCharacter:hover:before {
+  left: 20px;
+}
+body .game_characterCreation_inner .js-createCharacter:hover:after {
+  right: 20px;
+}
+body .game_characterCreation form {
+  display: none;
+}
